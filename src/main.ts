@@ -38,7 +38,7 @@ export const tmdbApi = process.env.apiKey && process.env.apiKey;
     logger: true,
   });
   await fastify.register(FastifyCors, {
-    origin: 'https://dev.moopa.live',
+    origin: process.env.ORIGIN_URI,
     methods: 'GET',
   });
 
