@@ -24,7 +24,7 @@ export const redis =
 export const tmdbApi = process.env.apiKey && process.env.apiKey;
 (async () => {
   const PORT = Number(process.env.PORT) || 3000;
-
+  
   console.log(chalk.green(`Starting server on port ${PORT}... 🚀`));
   if (!process.env.REDIS_HOST)
     console.warn(chalk.yellowBright('Redis not found. Cache disabled.'));
@@ -38,7 +38,7 @@ export const tmdbApi = process.env.apiKey && process.env.apiKey;
     logger: true,
   });
   await fastify.register(FastifyCors, {
-    origin: '*',
+    origin: ['https://moopa.live', 'https://demo.moopa.live', 'https://beta.moopa.live', 'https://test-api.moopa.live', 'https://ruka.moopa.live'],
     methods: 'GET',
   });
 
